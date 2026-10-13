@@ -5,8 +5,8 @@ Caisse de boissons pour tablette Android. Le montant de la commande est envoyé 
 ```
 caisse-netlify/
 ├── public/                    ← la caisse (page web installable sur la tablette)
-│   ├── index.html
-│   ├── manifest.webmanifest, sw.js, icon-*.png
+│   ├── index.html             (le logo du club y est intégré)
+│   ├── manifest.webmanifest, sw.js, icon-*.png (icônes = logo du club)
 ├── netlify/functions/sumup.js ← le petit serveur qui parle à SumUp (garde vos clés secrètes)
 ├── netlify.toml               ← configuration Netlify
 └── .env.example               ← liste des variables à renseigner
@@ -83,7 +83,9 @@ Dans Netlify : *Site configuration → Environment variables*, ajoutez :
 
 1. Ouvrez l'adresse Netlify de votre site dans **Chrome**.
 2. Menu ⋮ → *Installer l'application* (ou *Ajouter à l'écran d'accueil*).
-3. Ouvrez la caisse installée. Le bouton « Plein écran » masque les barres du système.
+3. Ouvrez la caisse installée : elle se lance directement **en plein écran**, sans barre du haut. Le bouton « Plein écran » permet aussi de basculer à la main (il devient « Quitter le plein écran »).
+   - Si vous aviez déjà installé une version précédente, **désinstallez-la puis réinstallez-la** : Android ne met pas toujours à jour le mode d'affichage d'une application déjà installée.
+   - Dans l'aperçu intégré de claude.ai, le plein écran est bloqué par le navigateur : utilisez la version installée.
 
 ## Étape 4 : appairer le Solo (une seule fois)
 
@@ -113,6 +115,16 @@ Faites un vrai paiement de **1 €** (ou un essai avec le Virtual Solo) :
 - **Page rechargée pendant un paiement** : la caisse retrouve le paiement en cours et le termine, sans le refaire.
 - **Pointage de fin de journée** : dans Admin, comparez le total carte de la caisse avec celui de l'application ou du tableau de bord SumUp.
 - **Remboursements** : à faire depuis SumUp (l'application de caisse ne rembourse pas).
+
+## Mettre à jour la caisse
+
+1. Remplacez les fichiers du projet par ceux de la nouvelle archive (GitHub : « Upload files » puis « Commit » ; ou ligne de commande : `npx netlify-cli deploy --prod`). Ne changez pas le nom du site : les données de la tablette sont liées à son adresse.
+2. Vos clés SumUp et votre code d'accès restent dans Netlify : rien à ressaisir.
+3. Sur la tablette, fermez complètement la caisse puis rouvrez-la avec internet.
+4. Vérifiez le **numéro de version** : *Réglages* → en bas du formulaire, « Version x.y.z (date) ».
+5. Réinstallez l'application seulement si la mise à jour change l'icône ou le plein écran.
+
+Avant une grosse mise à jour, exportez le CSV des commandes (Admin) : c'est votre sauvegarde. Pour le développeur : incrémentez `APP_VERSION` dans `public/index.html` et le nom du cache dans `public/sw.js` à chaque version.
 
 ## Sécurité : ce qu'il faut savoir
 
