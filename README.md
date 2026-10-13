@@ -1,4 +1,4 @@
-# Caisse boissons : version Netlify + terminal SumUp Solo
+# Mazbar : caisse de boissons, version Netlify + terminal SumUp Solo
 
 Caisse de boissons pour tablette Android. Le montant de la commande est envoyé **automatiquement** au terminal **SumUp Solo** (API Cloud de SumUp) : plus aucune ressaisie. Dès que le client a payé, la caisse enregistre la commande toute seule.
 
@@ -86,6 +86,8 @@ Dans Netlify : *Site configuration → Environment variables*, ajoutez :
 3. Ouvrez la caisse installée : elle se lance directement **en plein écran**, sans barre du haut. Le bouton « Plein écran » permet aussi de basculer à la main (il devient « Quitter le plein écran »).
    - Si vous aviez déjà installé une version précédente, **désinstallez-la puis réinstallez-la** : Android ne met pas toujours à jour le mode d'affichage d'une application déjà installée.
    - Dans l'aperçu intégré de claude.ai, le plein écran est bloqué par le navigateur : utilisez la version installée.
+   - En plein écran, le **bandeau du haut de la caisse** (logo, Admin, Réglages…) se replie pour laisser plus de place aux boissons. Touchez la **petite barre grise en haut au centre** pour le rouvrir 8 secondes. Le numéro de commande reste visible à côté de « Commande ».
+   - **En cas de doute sur le mode d'affichage**, ouvrez *Réglages* : la ligne « Affichage » indique si la caisse tourne dans un onglet Chrome, en application installée, en plein écran ou dans une vue intégrée (où le plein écran est impossible).
 
 ## Étape 4 : appairer le Solo (une seule fois)
 
