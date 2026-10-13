@@ -1,0 +1,7 @@
+{
+  "name": "caisse-boissons",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Caisse de boissons sur tablette avec terminal SumUp Solo (API Cloud)",
+  "engines": { "node": ">=18" }
+}
